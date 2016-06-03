@@ -242,7 +242,7 @@ project = function(x, attributes)
 #' @keywords internal
 filter_scidb = function(x, expr)
 {
-  if(!(class(x) %in% c("scidb"))) stop("x must be a scidb object")
+  if(!inherits(x,"scidb")) stop("x must be a scidb object")
   xname = x@name
   isdf = "scidb" %in% class(x)
   ischar = tryCatch( is.character(expr), error=function(e) FALSE)
